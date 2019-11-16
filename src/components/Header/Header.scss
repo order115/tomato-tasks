@@ -1,0 +1,40 @@
+@import "../../scss/variables";
+
+.header {
+  padding: 2rem 0 4rem;
+  background: $tomato;
+  color: $cf;
+
+  &__title {
+    margin-top: 1.5em;
+    margin-bottom: 1em;
+    max-width: 600px;
+  }
+
+  &__nav {
+    .nav-link {
+      text-transform: uppercase;
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      color: $cf;
+      border-radius: 0;
+      padding: 1em 2em;
+      line-height: 1;
+      border: 1px solid $cf;
+
+      &.active {
+        background: $cf;
+        color: $tomato;
+      }
+    }
+
+    .nav-item {
+      &:first-child > .nav-link {
+        border-radius: 4px 0 0 4px;
+      }
+      &:last-child > .nav-link {
+        border-radius: 0 4px 4px 0;
+      }
+    }
+  }
+}

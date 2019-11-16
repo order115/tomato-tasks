@@ -1,0 +1,45 @@
+.task {
+  cursor: pointer;
+  border-radius: 10px;
+  border: 1px solid #eee;
+  padding: 25px;
+  position: relative;
+  height: 100%;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+
+  &_completed {
+    color: #777;
+
+    .task__heading {
+      text-decoration: line-through;
+    }
+  }
+
+  &__delete {
+    width: 28px;
+    height: 28px;
+    border-radius: 100%;
+    padding: 0;
+    color: #777;
+    border: 1px solid #eee;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 10;
+  }
+
+  &__date {
+    font-size: 12px;
+    font-weight: 300;
+  }
+
+  &__heading {
+    font-size: 1.225rem;
+  }
+
+  &__toggle {
+    margin-top: auto;
+  }
+}
