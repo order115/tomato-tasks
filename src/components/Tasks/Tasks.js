@@ -6,13 +6,7 @@ class Tasks extends Component {
   constructor() {
     super();
     this.state = {
-      tasks: [
-        {
-          id: 0,
-          title: "Реализация намеченных плановых заданий",
-          completed: false
-        }
-      ]
+      tasks: []
     };
 
     this.toggleTaskStatus = this.toggleTaskStatus.bind(this);
@@ -54,35 +48,48 @@ class Tasks extends Component {
   addTask(newTask) {
     newTask = {
       ...newTask,
-      id: Math.floor(Math.random() * 1000),
-      completed: false
+      id: Math.floor(Math.random() * 1e4),
+      completed: false,
+      createdDate: new Date(),
+      tomatoCount: 0
     };
     this.setState(prevState => {
       return {
-        tasks: [...prevState.tasks, newTask]
+        tasks: [newTask, ...prevState.tasks]
       };
     });
   }
 
   render() {
     const { tasks } = this.state;
+
     const taskComponent = tasks.map(task => (
       <Task
         key={task.id}
         id={task.id}
         completed={task.completed}
         title={task.title}
+        createdDate={task.createdDate}
+        tomatoCount={task.tomatoCount}
         removeTask={this.removeTask}
         toggleTaskStatus={this.toggleTaskStatus}
       />
     ));
+
+    const tasksEmpty = (
+      <div className="text-center col col-xs-12">
+        <div className="alert alert-success">Список задач пуст</div>
+      </div>
+    );
+
+    console.log(tasks);
 
     return (
       <div>
         <AddTask addTask={this.addTask} />
 
         <section className="tasks row">
-          {tasks.length ? taskComponent : "empty"}
+          {tasks.length ? taskComponent : tasksEmpty}
         </section>
       </div>
     );

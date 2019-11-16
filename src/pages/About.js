@@ -3,7 +3,7 @@ import React from "react";
 function About() {
   return (
     <div>
-      <h1>About</h1>
+      <h1 className="mb-4">Описание</h1>
       <div className="lead">
         <p>
           Необходимо разработать приложение - список задач с помидоро-таймером.

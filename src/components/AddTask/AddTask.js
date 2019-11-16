@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import "./AddTask.scss";
 
 class AddTask extends Component {
   constructor() {
@@ -16,10 +17,8 @@ class AddTask extends Component {
     event.preventDefault();
     if (this.state.title.trim() !== "") {
       this.props.addTask(this.state);
-      this.setState({
-        title: ""
-      });
     }
+    this.setState({ title: "" });
   }
 
   handleChange(event) {
@@ -36,7 +35,7 @@ class AddTask extends Component {
           <div className="input-group">
             <input
               type="text"
-              placeholder="Добавить новую задачу"
+              placeholder="Новая задача"
               className="form-control"
               value={this.state.title}
               onChange={this.handleChange}
