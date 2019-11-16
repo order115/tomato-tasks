@@ -1,7 +1,5 @@
 import React from "react";
 import Nav from "../Nav/Nav";
-import { Link } from "react-router-dom";
-import logo from "../../img/logo.svg";
 import "./Header.scss";
 
 function Header() {
