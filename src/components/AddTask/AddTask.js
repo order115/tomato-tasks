@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 class AddTask extends Component {
   constructor() {
@@ -54,3 +55,7 @@ class AddTask extends Component {
 }
 
 export default AddTask;
+
+AddTask.propTypes = {
+  addTask: PropTypes.func
+};

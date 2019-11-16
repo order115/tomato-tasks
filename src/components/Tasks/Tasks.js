@@ -9,7 +9,7 @@ class Tasks extends Component {
       tasks: [
         {
           id: 0,
-          title: "Заказать книгу «Секреты JavaScript ниндзя»",
+          title: "Реализация намеченных плановых заданий",
           completed: false
         }
       ]
@@ -20,13 +20,7 @@ class Tasks extends Component {
     this.addTask = this.addTask.bind(this);
   }
 
-  componentDidMount() {
-    // this.setState(prevState => {
-    //   return {
-    //     tasks: prevState.tasks.sort((a, b) => a.completed - b.completed)
-    //   };
-    // });
-  }
+  componentDidMount() {}
 
   /**
    * Переключение статуса задачи
@@ -52,7 +46,6 @@ class Tasks extends Component {
   removeTask(id) {
     this.setState(prevState => {
       return {
-        removedTasks: prevState.tasks.filter(task => task.id === id),
         tasks: prevState.tasks.filter(task => task.id !== id)
       };
     });
@@ -61,11 +54,13 @@ class Tasks extends Component {
   addTask(newTask) {
     newTask = {
       ...newTask,
-      // createdDate: new Date(),
-      id: Math.floor(Math.random() * 100)
+      id: Math.floor(Math.random() * 1000),
+      completed: false
     };
-    this.setState(prevstate => {
-      tasks: [newTask, ...prevstate.tasks];
+    this.setState(prevState => {
+      return {
+        tasks: [...prevState.tasks, newTask]
+      };
     });
   }
 
@@ -77,8 +72,6 @@ class Tasks extends Component {
         id={task.id}
         completed={task.completed}
         title={task.title}
-        date={task.createdDate}
-        countTomato={task.countTomato}
         removeTask={this.removeTask}
         toggleTaskStatus={this.toggleTaskStatus}
       />
