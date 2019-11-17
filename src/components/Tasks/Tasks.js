@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Task from "../Task/Task";
 import AddTask from "../AddTask/AddTask";
+import emptyTasks from "../../img/empty-tasks.svg";
 
 class Tasks extends Component {
   constructor() {
@@ -77,8 +78,9 @@ class Tasks extends Component {
     ));
 
     const tasksEmpty = (
-      <div className="text-center col col-xs-12">
-        <div className="alert alert-success">Список задач пуст</div>
+      <div className="text-center col col-xs-12 pt-3">
+        <img src={emptyTasks} alt="" style={{ height: 200 }} />
+        <h3>Список задач пуст</h3>
       </div>
     );
 
