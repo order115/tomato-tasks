@@ -1,8 +1,7 @@
 .task {
-  cursor: pointer;
   border-radius: 10px;
   border: 1px solid #eee;
-  padding: 25px;
+  padding: 15px 25px;
   position: relative;
   height: 100%;
   background: #ffffff;
@@ -26,23 +25,30 @@
     color: #777;
     border: 1px solid #eee;
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 15px;
+    right: 15px;
     z-index: 10;
+  }
+
+  &__tomato {
+    margin-bottom: 3rem;
   }
 
   &__date {
     font-size: 12px;
     font-weight: 300;
     margin-bottom: 0.5em;
+    color: #777;
   }
 
   &__heading {
     font-size: 1.225rem;
+    margin-bottom: 1rem;
   }
 
   &__toggle {
     margin-top: auto;
-    align-self: flex-end;
+    align-self: flex-start;
+    font-size: 14px;
   }
 }

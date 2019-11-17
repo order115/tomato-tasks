@@ -1,7 +1,7 @@
 import React from "react";
-import "./Task.scss";
 import PropTypes from "prop-types";
-import tomato from "../../img/tomato.svg";
+import "./Task.scss";
+import Tomato from "../Tomato/Tomato";
 
 function Task(props) {
   const {
@@ -11,7 +11,8 @@ function Task(props) {
     toggleTaskStatus,
     removeTask,
     createdDate,
-    tomatoCount
+    tomatoCount,
+    addTomato
   } = props;
 
   const prependZero = date => (date < 10 ? `0${date}` : date);
@@ -32,10 +33,7 @@ function Task(props) {
           &times;
         </button>
 
-        <div className="tomato  mb-3">
-          <img src={tomato} alt="" style={{ width: 30 }} />
-          <span className="count">{tomatoCount}</span>
-        </div>
+        <Tomato tomatoCount={tomatoCount} addTomato={() => addTomato(id)} />
 
         <div className="task__date">Создана: {formatDate(createdDate)}</div>
         <h5 className="task__heading">{title}</h5>

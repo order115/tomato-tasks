@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import tasksData from "../../data/tasksData";
 import Task from "../Task/Task";
 import AddTask from "../AddTask/AddTask";
 import emptyTasks from "../../img/empty-tasks.svg";
@@ -7,12 +8,14 @@ class Tasks extends Component {
   constructor() {
     super();
     this.state = {
-      tasks: []
+      tasks: tasksData
     };
 
     this.toggleTaskStatus = this.toggleTaskStatus.bind(this);
     this.removeTask = this.removeTask.bind(this);
     this.addTask = this.addTask.bind(this);
+    this.addTomato = this.addTomato.bind(this);
+    this.setTomatoTimer = this.setTomatoTimer.bind(this);
   }
 
   componentDidMount() {}
@@ -61,6 +64,27 @@ class Tasks extends Component {
     });
   }
 
+  setTomatoTimer(timer = 25 * 60 * 1000) {
+    setTimeout(() => {
+      console.log("Times over");
+    }, timer);
+  }
+
+  addTomato(id) {
+    this.setState(prevState => {
+      const updatedTasks = prevState.tasks.map(task => {
+        if (task.id === id) task.tomatoCount++;
+        return task;
+      });
+
+      return {
+        tasks: updatedTasks
+      };
+    });
+
+    this.setTomatoTimer(3000);
+  }
+
   render() {
     const { tasks } = this.state;
 
@@ -74,6 +98,7 @@ class Tasks extends Component {
         tomatoCount={task.tomatoCount}
         removeTask={this.removeTask}
         toggleTaskStatus={this.toggleTaskStatus}
+        addTomato={this.addTomato}
       />
     ));
 
@@ -83,8 +108,6 @@ class Tasks extends Component {
         <h3>Список задач пуст</h3>
       </div>
     );
-
-    console.log(tasks);
 
     return (
       <div>

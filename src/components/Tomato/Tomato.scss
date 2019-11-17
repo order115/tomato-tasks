@@ -1,0 +1,31 @@
+@import "../../scss/variables";
+
+.tomato {
+  display: flex;
+  align-items: center;
+
+  &__count {
+    position: relative;
+    display: inline-block;
+
+    > span {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -35%);
+      color: $cf;
+      font-weight: 500;
+    }
+  }
+
+  &__button {
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    border-radius: 50%;
+    font-size: 20px;
+    margin-left: 10px;
+    margin-top: 6px;
+  }
+}
