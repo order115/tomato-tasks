@@ -33,7 +33,11 @@ function Task(props) {
           &times;
         </button>
 
-        <Tomato tomatoCount={tomatoCount} addTomato={() => addTomato(id)} />
+        <Tomato
+          tomatoCount={tomatoCount}
+          addTomato={() => addTomato(id)}
+          completed={completed}
+        />
 
         <div className="task__date">Создана: {formatDate(createdDate)}</div>
         <h5 className="task__heading">{title}</h5>

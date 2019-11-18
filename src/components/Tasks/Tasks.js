@@ -64,10 +64,10 @@ class Tasks extends Component {
     });
   }
 
-  setTomatoTimer(timer = 25 * 60 * 1000) {
+  setTomatoTimer(duration = 25 * 60 * 1e3) {
     setTimeout(() => {
       console.log("Times over");
-    }, timer);
+    }, duration);
   }
 
   addTomato(id) {

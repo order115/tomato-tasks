@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import "./Tomato.scss";
 import tomato from "../../img/tomato.svg";
 
-const Tomato = ({ tomatoCount, addTomato }) => {
+const Tomato = ({ tomatoCount, addTomato, completed }) => {
   return (
     <div className="tomato mb-3">
       <div className="tomato__count">
@@ -18,6 +18,7 @@ const Tomato = ({ tomatoCount, addTomato }) => {
       <button
         className="btn btn-sm btn-outline-success tomato__button"
         onClick={addTomato}
+        disabled={completed}
       >
         +
       </button>
@@ -29,5 +30,6 @@ export default Tomato;
 
 Tomato.propTypes = {
   tomatoCount: PropTypes.number,
-  addTomato: PropTypes.func
+  addTomato: PropTypes.func,
+  completed: PropTypes.bool
 };
