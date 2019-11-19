@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { v4 } from "uuid";
 import tasksData from "../../data/tasksData";
 import Task from "../Task/Task";
 import AddTask from "../AddTask/AddTask";
@@ -52,7 +53,7 @@ class Tasks extends Component {
   addTask(newTask) {
     newTask = {
       ...newTask,
-      id: Math.floor(Math.random() * 1e4),
+      id: v4(),
       completed: false,
       createdDate: new Date(),
       tomatoCount: 0
@@ -62,6 +63,7 @@ class Tasks extends Component {
         tasks: [newTask, ...prevState.tasks]
       };
     });
+    console.log(this.state.tasks);
   }
 
   setTomatoTimer(duration = 25 * 60 * 1e3) {

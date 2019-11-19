@@ -55,7 +55,7 @@ function Task(props) {
 export default Task;
 
 Task.propTypes = {
-  id: PropTypes.number,
+  id: PropTypes.string,
   title: PropTypes.string,
   completed: PropTypes.bool,
   tomatoCount: PropTypes.number,
